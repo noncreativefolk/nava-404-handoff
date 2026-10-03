@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAVA × 404 — Clarke Quay, Singapore</title>
+<meta name="description" content="Two concepts. One address. NAVA — the lounge club, by day · 404 CLUB NOT FOUND — the club, by night. Clarke Quay, Singapore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0b0b0c; --ink2:#131316; --bone:#EDE8DF; --bone2:#d9d3c6;
+  --dim:#8f8a80; --dim2:#5b574f;
+  --gold:#96712F; --goldhi:#c39a52; --red:#E23A2D; --redhi:#FF5A4A;
+  --hair:rgba(237,232,223,.13);
+  --mono:'JetBrains Mono',monospace; --grot:'Space Grotesk','Noto Sans SC',sans-serif;
+  --easeOut:cubic-bezier(0.16,1,0.3,1); --easeInOut:cubic-bezier(0.83,0,0.17,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--ink);color:var(--bone);font-family:var(--grot)}
+::selection{background:var(--bone);color:var(--ink)}
+::-webkit-scrollbar{display:none}
+button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer}
+input{font-family:var(--mono);font-size:12px;letter-spacing:.06em;background:transparent;border:none;border-bottom:1px solid var(--hair);color:var(--bone);padding:10px 2px;width:100%;outline:none}
+input:focus{border-color:var(--bone)}
+input::placeholder{color:var(--dim2)}
+
+/* ——— chrome ——— */
+#chrome{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);mix-blend-mode:difference}
+#chrome .l{display:flex;gap:14px;align-items:center}
+#chrome .r{display:flex;gap:16px;align-items:center}
+#chrome b{color:var(--bone);font-weight:400}
+#lang{color:var(--dim);letter-spacing:.14em}
+#lang:hover{color:var(--bone)}
+#brand{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:60;mix-blend-mode:difference}
+#brand img{height:16px;display:block;filter:invert(1)}
+#sgt{position:fixed;right:18px;bottom:18px;z-index:60;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--dim2);mix-blend-mode:difference}
+
+/* ——— reveal ——— */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--easeOut),transform 1.1s var(--easeOut)}
+.rv.on{opacity:1;transform:none}
+
+/* ——— hero / main intro ——— */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:16vh 7vw 10vh;position:relative}
+#hero .kick{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--dim);display:flex;align-items:center;gap:14px}
+#hero .kick:before{content:"";width:44px;height:1px;background:var(--gold)}
+#hero h1{font-size:clamp(44px,8.2vw,118px);font-weight:700;letter-spacing:-.025em;line-height:.96;margin-top:3vh}
+#hero h1 .em{color:var(--dim)}
+#hero .intro{max-width:62ch;font-size:clamp(15px,1.5vw,19px);line-height:1.8;color:var(--bone2);margin-top:4.5vh}
+#hero .meta{display:flex;flex-wrap:wrap;gap:10px 34px;margin-top:5vh;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--dim)}
+#hero .meta b{color:var(--bone);font-weight:400}
+#hero .scroll{position:absolute;bottom:5vh;left:7vw;font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--dim2)}
+
+/* ——— split screen ——— */
+#split{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;border-top:1px solid var(--hair)}
+.half{position:relative;display:block;overflow:hidden;color:inherit;text-decoration:none}
+.half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s var(--easeOut),filter 1.6s var(--easeOut)}
+.half:hover img{transform:scale(1.035)}
+.half .veil{position:absolute;inset:0;transition:background 1.2s var(--easeOut)}
+.half.nava .veil{background:linear-gradient(180deg,rgba(237,232,223,.10),rgba(237,232,223,.88) 62%,rgba(237,232,223,.97))}
+.half.c404 .veil{background:linear-gradient(180deg,rgba(11,11,12,.16),rgba(11,11,12,.82) 62%,rgba(11,11,12,.96))}
+.half.nava{color:var(--ink)}
+.half.c404{color:var(--bone)}
+.half .hc{position:absolute;left:34px;right:34px;bottom:30px}
+.half .k{font-family:var(--mono);font-size:9px;letter-spacing:.22em;display:flex;align-items:center;gap:12px}
+.half.nava .k{color:var(--gold)}
+.half.c404 .k{color:var(--redhi)}
+.half .k:before{content:"";width:30px;height:1px;background:currentColor}
+.half .nm{font-size:clamp(34px,3.8vw,54px);font-weight:700;letter-spacing:-.02em;line-height:1;margin-top:14px}
+.half .ds{font-size:14px;line-height:1.7;margin-top:12px;max-width:40ch}
+.half.nava .ds{color:#3c382f}
+.half.c404 .ds{color:var(--bone2)}
+.half .m{display:flex;justify-content:space-between;align-items:center;margin-top:20px;font-family:var(--mono);font-size:9px;letter-spacing:.18em}
+.half .hrs{padding:5px 9px}
+.half.nava .hrs{background:rgba(11,11,12,.08);color:var(--ink)}
+.half.c404 .hrs{background:rgba(237,232,223,.10);color:var(--bone)}
+.half .go{padding:6px 10px;transition:background .35s,color .35s}
+.half.nava .go{background:var(--ink);color:var(--bone)}
+.half.nava:hover .go{background:var(--gold)}
+.half.c404 .go{background:var(--bone);color:var(--ink)}
+.half.c404:hover .go{background:var(--red)}
+.half.c404:hover .go{color:var(--bone)}
+
+/* ——— quick links ——— */
+#qlinks{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair)}
+#qlinks a{display:flex;justify-content:space-between;align-items:center;padding:26px 34px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--bone);text-decoration:none;border-right:1px solid var(--hair);transition:background .45s,color .45s}
+#qlinks a:last-child{border-right:0}
+#qlinks a i{font-style:normal;color:var(--dim);transition:transform .45s var(--easeOut),color .45s}
+#qlinks a:hover{background:var(--bone);color:var(--ink)}
+#qlinks a:hover i{transform:translateX(6px);color:var(--ink)}
+
+/* ——— 04 access ——— */
+#access{padding:14vh 7vw 12vh;border-top:1px solid var(--hair)}
+#access h2{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--dim);font-weight:400;margin-bottom:1vh}
+#access .big{font-size:clamp(30px,4.6vw,62px);font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:5vh}
+.door{display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:center;padding:22px 0;border-top:1px solid var(--hair);cursor:pointer;text-align:left;width:100%}
+.door:last-of-type{border-bottom:1px solid var(--hair)}
+.door .no{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.14em}
+.door .t{font-size:clamp(18px,2.2vw,27px);font-weight:500;letter-spacing:.01em;transition:transform .5s var(--easeOut)}
+.door .d{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);margin-top:6px}
+.door .arr{font-family:var(--mono);font-size:14px;color:var(--dim);transition:color .4s,transform .5s var(--easeOut)}
+.door:hover .t{transform:translateX(10px)}
+.door:hover .arr{color:var(--bone);transform:translateX(6px)}
+.dpanel{overflow:hidden;max-height:0;transition:max-height .7s var(--easeInOut)}
+.dpanel.open{max-height:480px}
+.dpanel .in{padding:6px 0 34px 86px;max-width:520px}
+.dpanel .note{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--dim2);line-height:1.9;margin-top:14px}
+.dpanel .sum{font-size:14px;line-height:1.75;color:var(--bone2);margin-bottom:18px;max-width:46ch}
+.dpanel button.sub{margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;border:1px solid var(--bone);padding:12px 24px;color:var(--bone);transition:background .4s,color .4s}
+.dpanel button.sub:hover{background:var(--bone);color:var(--ink)}
+.role{display:block;width:100%;text-align:left;padding:12px 0;border-bottom:1px solid var(--hair);font-size:13px;letter-spacing:.03em;color:var(--bone2);text-decoration:none}
+.role:hover{color:var(--bone)}
+#access .foot{margin-top:8vh;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--dim2);line-height:2}
+
+@media (max-width:760px){
+  #hero{padding:14vh 7vw 12vh}
+  #split{grid-template-columns:1fr;min-height:0}
+  .half{min-height:64vh}
+  #qlinks{grid-template-columns:1fr}
+  #qlinks a{border-right:0;border-bottom:1px solid var(--hair)}
+  #access{padding:10vh 7vw 16vh}
+  .dpanel .in{padding-left:0}
+  .door{grid-template-columns:40px 1fr auto;gap:12px}
+  #chrome{padding:12px 14px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001s!important;transition-duration:.001s!important}
+}
+</style>
+</head>
+<body>
+
+<div id="chrome">
+  <div class="l"><b>NAVA × 404</b><span>navax404.com</span></div>
+  <div class="r"><button id="lang">中文</button></div>
+</div>
+<div id="brand"><img src="https://images.weserv.nl/?url=n.uguu.se/KcgmnUBd.png" alt="NAVA × 404"></div>
+<div id="sgt">SGT <span id="clock">--:--</span></div>
+
+<!-- MAIN INTRO -->
+<section id="hero">
+  <div class="kick rv" data-en="NAVA × 404 — CLARKE QUAY, SINGAPORE" data-zh="NAVA × 404 — 新加坡克拉码头">NAVA × 404 — CLARKE QUAY, SINGAPORE</div>
+  <h1 class="rv"><span data-en="TWO CONCEPTS." data-zh="双重品牌。">TWO CONCEPTS.</span><br><span class="em" data-en="ONE ADDRESS." data-zh="一处空间。">ONE ADDRESS.</span></h1>
+  <p class="intro rv" data-en="NAVA, the lounge club, by day · 404 CLUB NOT FOUND, by night. An international club, now on the Singapore River. Born in China. Found across cities worldwide. Now, Singapore." data-zh="昼·NAVA 休闲俱乐部 夜·404 CLUB NOT FOUND。国际俱乐部，落地新加坡河畔。生于中国，遍布全球城市。此刻，新加坡。">NAVA, the lounge club, by day · 404 CLUB NOT FOUND, by night. An international club, now on the Singapore River. Born in China. Found across cities worldwide. Now, Singapore.</p>
+  <div class="meta rv">
+    <span data-en="CLARKE QUAY · BLOCK E · 3E RIVER VALLEY RD" data-zh="克拉码头 · E 座 · 里峇峇利路 3E 号">CLARKE QUAY · BLOCK E · 3E RIVER VALLEY RD</span>
+    <span><b>NAVA</b> — 14:00 – LATE · DAILY</span>
+    <span><b>404</b> — THU–SAT · 22:00 – LATE</span>
+  </div>
+  <div class="scroll" data-en="SCROLL — THE TWO ROOMS" data-zh="下滑 — 两个空间">SCROLL — THE TWO ROOMS</div>
+</section>
+
+<!-- SPLIT SCREEN -->
+<section id="split">
+  <a class="half nava rv" href="nava.html">
+    <img src="https://images.weserv.nl/?url=n.uguu.se/hAgYjkVT.jpg" alt="NAVA lounge club concept render">
+    <div class="veil"></div>
+    <div class="hc">
+      <div class="k" data-en="BY DAY — THE LOUNGE CLUB" data-zh="日间 — 休闲俱乐部">BY DAY — THE LOUNGE CLUB</div>
+      <div class="nm">NAVA</div>
+      <p class="ds" data-en="The lounge club. Coffee, afternoon tea, cocktails that linger — come in, stay a while." data-zh="NAVA 休闲俱乐部：咖啡、下午茶、慢调鸡尾酒，欢迎进店小坐。">The lounge club. Coffee, afternoon tea, cocktails that linger — come in, stay a while.</p>
+      <div class="m"><span class="hrs">14:00 – LATE · DAILY</span><span class="go" data-en="ENTER →" data-zh="进入 →">ENTER →</span></div>
+    </div>
+  </a>
+  <a class="half c404 rv" href="404.html">
+    <img src="https://images.weserv.nl/?url=h.uguu.se/aOXHmthF.jpg" alt="404 club concept render">
+    <div class="veil"></div>
+    <div class="hc">
+      <div class="k" data-en="BY NIGHT — THE CLUB" data-zh="夜间 — 俱乐部">BY NIGHT — THE CLUB</div>
+      <div class="nm">404 CLUB NOT FOUND</div>
+      <p class="ds" data-en="The club. Found, not advertised — the door opens for the right energy." data-zh="404 CLUB NOT FOUND，不对外大肆宣传，只向气场相合的客人敞开大门。">The club. Found, not advertised — the door opens for the right energy.</p>
+      <div class="m"><span class="hrs">THU–SAT · 22:00 – LATE</span><span class="go" data-en="ENTER →" data-zh="进入 →">ENTER →</span></div>
+    </div>
+  </a>
+</section>
+
+<!-- QUICK LINKS -->
+<nav id="qlinks" class="rv">
+  <a href="find-us.html"><span data-en="FIND US" data-zh="找到我们">FIND US</span><i>→</i></a>
+  <a href="programmes.html"><span data-en="PROGRAMMES" data-zh="项目">PROGRAMMES</span><i>→</i></a>
+  <a href="careers.html"><span data-en="CAREERS" data-zh="招聘">CAREERS</span><i>→</i></a>
+</nav>
+
+<!-- 04 ACCESS -->
+<section id="access">
+  <h2 data-en="ACCESS — FOUR LEGITIMATE DOORS" data-zh="四种入场方式">ACCESS — FOUR LEGITIMATE DOORS</h2>
+  <div class="big rv" data-en="Find your way in." data-zh="找到你的入场方式">Find your way in.</div>
+
+  <button class="door" data-d="p1"><span class="no">01</span><span><span class="t" data-en="Launch Access" data-zh="开业启幕">Launch Access</span><span class="d" data-en="first in, when the doors open — the waitlist" data-zh="加入特邀名单，试营业 抢先入场">first in, when the doors open — the waitlist</span></span><span class="arr">→</span></button>
+  <div class="dpanel" id="p1"><div class="in">
+    <p class="sum" data-en="Opening dates, soft-launch waves and first reservations go to this list before anywhere public." data-zh="开幕日期、内测场次与首批预订，将优先发送至此名单人员，早于任何公开渠道。">Opening dates, soft-launch waves and first reservations go to this list before anywhere public.</p>
+    <form onsubmit="return noted(this)"><input type="email" required placeholder="email"><button class="sub" data-en="join the waitlist" data-zh="加入特邀名单">join the waitlist</button></form>
+    <p class="note" data-en="By submitting you consent to being contacted about NAVA × 404 (PDPA)." data-zh="提交即代表您同意，我们可就 NAVA × 404 相关事宜与您取得联系（个人资料保护法令）">By submitting you consent to being contacted about NAVA × 404 (PDPA).</p>
+  </div></div>
+
+  <button class="door" data-d="p2"><span class="no">02</span><span><span class="t" data-en="Muse Society" data-zh="缪斯社群">Muse Society</span><span class="d" data-en="the ambassador circle — 100 ambassadors, 13 curators" data-zh="大使圈层 — 100 位大使、13 位主理人">the ambassador circle — 100 ambassadors, 13 curators</span></span><span class="arr">→</span></button>
+  <div class="dpanel" id="p2"><div class="in">
+    <p class="sum" data-en="A curated circle carrying the venue's social rhythm outward — early access, hosted moments, a standing place in the programme. Expression of interest, not an application; every name is reviewed." data-zh="这是一个精心打造的专属圈层，拓展您的社交边界——您可享受优先入场权、专属款待时刻、常驻席位。本项仅为意向登记，并非正式报名；所有登记人员均需经过甄选。">A curated circle carrying the venue's social rhythm outward — early access, hosted moments, a standing place in the programme. Expression of interest, not an application; every name is reviewed.</p>
+    <form onsubmit="return noted(this)"><input type="text" required placeholder="name" style="margin-bottom:6px"><input type="text" required placeholder="whatsapp" style="margin-bottom:6px"><input type="text" placeholder="instagram @"><button class="sub" data-en="register interest" data-zh="登记意向">register interest</button></form>
+    <p class="note" data-en="Curated, seat-based. PDPA applies." data-zh="策划制 席位制。适用个人资料保护法令">Curated, seat-based. PDPA applies.</p>
+  </div></div>
+
+  <button class="door" data-d="p3"><span class="no">03</span><span><span class="t" data-en="Inner Circle — Co-Founders" data-zh="核心圈层 — 联合创始人">Inner Circle — Co-Founders</span><span class="d" data-en="not a membership, not a guest list — a position" data-zh="这不是普通会员，也不是VIP访客名单 —— 而是一个席位">not a membership, not a guest list — a position</span></span><span class="arr">→</span></button>
+  <div class="dpanel" id="p3"><div class="in">
+    <p class="sum" data-en="An invitation to an opportunity for people already established in the scene — recognised as a Co-Founder, with a place in the business, the returns, the privileges, and the spotlight. Limited seats. Conversations begin personally." data-zh="诚邀业界资深人士加入——以联合创始人的身份获得认可，共享事业发展、投资回报、专属特权与品牌聚光。席位有限，洽谈由专人一对一开启">An invitation to an opportunity for people already established in the scene — recognised as a Co-Founder, with a place in the business, the returns, the privileges, and the spotlight. Limited seats. Conversations begin personally.</p>
+    <form onsubmit="return noted(this)"><input type="text" required placeholder="name" style="margin-bottom:6px"><input type="text" required placeholder="whatsapp" style="margin-bottom:6px"><input type="text" placeholder="instagram @"><button class="sub" data-en="request the conversation" data-zh="预约面谈">request the conversation</button></form>
+    <p class="note" data-en="Follow-up is personal — voice note, white paper, in person. PDPA applies." data-zh="后续沟通由专人负责 —— 语音留言、白皮书或面谈，皆可安排。适用个人资料保护法令（PDPA）">Follow-up is personal — voice note, white paper, in person. PDPA applies.</p>
+  </div></div>
+
+  <button class="door" data-d="p4"><span class="no">04</span><span><span class="t" data-en="Careers" data-zh="加入我们">Careers</span><span class="d" data-en="typical job description not found — ten open roles" data-zh="找不到常规职位描述 —— 10大席位 现已开放">typical job description not found — ten open roles</span></span><span class="arr">→</span></button>
+  <div class="dpanel" id="p4"><div class="in">
+    <a class="role" href="mailto:recruitment@navax404.com?subject=Careers%20—%20F%26B%20and%20kitchen" data-en="F&amp;B + kitchen — NAVA side" data-zh="餐饮与厨房 — NAVA 区域">F&amp;B + kitchen — NAVA side</a>
+    <a class="role" href="mailto:recruitment@navax404.com?subject=Careers%20—%20Bar" data-en="Bar — day cocktails to night service" data-zh="吧台——从日间鸡尾酒到夜间服务">Bar — day cocktails to night service</a>
+    <a class="role" href="mailto:recruitment@navax404.com?subject=Careers%20—%20Floor%20and%20door" data-en="Floor, door + hosts" data-zh="楼面、门迎及接待">Floor, door + hosts</a>
+    <a class="role" href="mailto:recruitment@navax404.com?subject=Careers%20—%20Music%20and%20programming" data-en="Music + programming — 404 side" data-zh="音乐与节目策划 — 404 区域">Music + programming — 404 side</a>
+    <a class="role" href="mailto:recruitment@navax404.com?subject=Careers%20—%20Muse%20Society%20Relations" data-en="Manager, Muse Society Relations" data-zh="缪斯社群关系经理">Manager, Muse Society Relations</a>
+    <a class="role" href="mailto:recruitment@navax404.com?subject=Careers%20—%20Co-Founder%20Relations" data-en="Director, Co-Founder Relations" data-zh="联合创始人关系总监">Director, Co-Founder Relations</a>
+    <p class="note" data-en="Apply by email for now — full application channel opens with listings." data-zh="现阶段请通过电子邮件申请，完整申请通道将随职位列表一并开放">Apply by email for now — full application channel opens with listings.</p>
+  </div></div>
+
+  <p class="foot">NAVA × 404 CLUB NOT FOUND — CLARKE QUAY · BLOCK E · 3E RIVER VALLEY RD, SINGAPORE<br>ENQUIRIES@NAVAX404.COM — © 2026 EXPERIENCE EXCELLENCE</p>
+</section>
+
+<script>
+(function(){
+var $ = function(s){return document.querySelector(s)};
+var $$ = function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+
+/* ——— SGT clock ——— */
+function tick(){var d=new Date(Date.now()+480*60000-(new Date().getTimezoneOffset())*60000);
+  $('#clock').textContent=('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2);}
+tick(); setInterval(tick, 10000);
+
+/* ——— language ——— */
+var zh=false;
+try{zh=localStorage.getItem('nx4lang')==='zh';}catch(e){}
+var lq=window.location.search.match(/[?&]lang=(zh|en)/);
+if(lq){zh=lq[1]==='zh';try{localStorage.setItem('nx4lang',lq[1]);}catch(e){}}
+function applyZh(){
+  $$('[data-en]').forEach(function(el){var v=zh?el.getAttribute('data-zh'):el.getAttribute('data-en'); if(v)el.textContent=v;});
+  $('#lang').textContent=zh?'EN':'中文';
+  document.documentElement.lang=zh?'zh':'en';
+}
+$('#lang').addEventListener('click',function(){
+  zh=!zh;
+  try{localStorage.setItem('nx4lang',zh?'zh':'en');}catch(e){}
+  applyZh();
+});
+applyZh();
+
+/* ——— reveal on scroll ——— */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+},{threshold:.12});
+$$('.rv').forEach(function(el){io.observe(el)});
+
+/* ——— 04 access doors ——— */
+$$('.door').forEach(function(d){
+  d.addEventListener('click',function(){
+    var p=document.getElementById(d.getAttribute('data-d'));
+    var open=p.classList.contains('open');
+    $$('.dpanel').forEach(function(x){x.classList.remove('open')});
+    if(!open)p.classList.add('open');
+  });
+});
+window.noted=function(f){
+  var b=f.querySelector('.sub'); b.textContent=zh?'意向已登记，感谢您的提交':'interest noted — thank you';
+  f.querySelectorAll('input').forEach(function(i){i.disabled=true});
+  return false;
+};
+})();
+</script>
+</body>
+</html>
