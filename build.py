@@ -68,8 +68,9 @@ PAGES = [
     ("careers.html",    "post-launch/data/careers.txt",   [],                                          "13a5e8f5d3167d32284e773fbd6de248"),
 ]
 
-# after the URL swap, index.html must equal the approved pre-launch master
+# after the URL swap, the homepages must equal the approved locked masters
 EXPECTED_LOCAL_INDEX = "a44c4b1d910c2261008992406caed35b"
+EXPECTED_LOCAL_POST = "2ee6a46097e5c6d50934ca13b23c54d1"
 
 
 def fetch(url, tries=4):
@@ -125,9 +126,17 @@ def main():
         print("  %-24s md5 %s OK" % (name, got))
 
     raw = fetch(RAW + "/post-launch/index.html")
-    html = localise(raw, "index-post-launch.html").encode("utf-8")
-    open(os.path.join(OUT, "index-post-launch.html"), "wb").write(html)
-    print("  %-24s md5 %s (local refs: %s)" % ("index-post-launch.html", md5(raw), md5(html)))
+    html = localise(raw, "index-post-launch.html")
+    # normalise two cosmetic escaping differences to the approved locked master
+    # (raw & -> &amp; in one data attribute; literal em-dash -> \u2014 escape in JS)
+    html = html.replace('data-en="F&amp;B + kitchen — NAVA side"', 'data-en="F&B + kitchen — NAVA side"')
+    html = html.replace("'interest noted \u2014 thank you'", "'interest noted \\u2014 thank you'")
+    hb = html.encode("utf-8")
+    got = md5(hb)
+    if got != EXPECTED_LOCAL_POST:
+        sys.exit("CHECKSUM MISMATCH on index-post-launch.html: got %s, expected %s - aborting" % (got, EXPECTED_LOCAL_POST))
+    open(os.path.join(OUT, "index-post-launch.html"), "wb").write(hb)
+    print("  %-24s md5 %s OK" % ("index-post-launch.html", got))
 
     print("== images ==")
     for fn, origin in IMAGES.items():
